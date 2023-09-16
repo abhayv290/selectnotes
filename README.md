@@ -1,3 +1,43 @@
+Hey there,
+
+# SElectNOtes your nonstop notemaking parter
+create a note on the cloud
+
+SelectNOtes: A cloud notes app built with create-react-app, Node.js, Express.js, MongoDB, and Mongoose
+
+SelectNOtes is a simple but powerful notes app that I built using the MERN stack (MongoDB, Express.js, React.js, and Node.js). It allows users to create, read, update, and delete notes, all of which are stored in a MongoDB database.
+
+To build SelectNOtes, I used the following technologies:
+
+Create-react-app: A tool that makes it easy to create React apps with no configuration required.
+Node.js: A JavaScript runtime environment that allows us to build server-side applications.
+Express.js: A web framework for Node.js that makes it easy to create and manage web applications.
+MongoDB: A NoSQL database that is well-suited for storing and retrieving data for modern web applications.
+Mongoose: An object modeling library for MongoDB that makes it easy to interact with the database.
+SelectNOtes is deployed on a cloud server, so users can access their notes from anywhere with an internet connection. The app is also responsive, so it looks great on all devices, from desktops to smartphones.
+
+Here are some of the features of SelectNOtes:
+
+Create, read, update, and delete notes
+Organize notes into categories
+Tag notes for easy searching
+Share notes with others
+Collaborate on notes with others
+I am excited to share SelectNOtes with the world, and I hope that it will be a useful tool for anyone who needs a simple and reliable way to keep track of their notes.
+made with using react js and  node,express,mogodb
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
