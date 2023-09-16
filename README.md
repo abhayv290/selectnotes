@@ -10,10 +10,18 @@ SelectNOtes is a simple but powerful notes app that I built using the MERN stack
 To build SelectNOtes, I used the following technologies:
 
 Create-react-app: A tool that makes it easy to create React apps with no configuration required.
+
+
 Node.js: A JavaScript runtime environment that allows us to build server-side applications.
+
+
 Express.js: A web framework for Node.js that makes it easy to create and manage web applications.
+
+
 MongoDB: A NoSQL database that is well-suited for storing and retrieving data for modern web applications.
+
 Mongoose: An object modeling library for MongoDB that makes it easy to interact with the database.
+
 SelectNOtes is deployed on a cloud server, so users can access their notes from anywhere with an internet connection. The app is also responsive, so it looks great on all devices, from desktops to smartphones.
 
 Here are some of the features of SelectNOtes:
