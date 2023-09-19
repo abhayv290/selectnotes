@@ -25,5 +25,5 @@ const UserSchema = new Schema({
 })
 
 const user= mongoose.model('user', UserSchema);
-user.createIndexes();
+// user.createIndexes();
 module.exports=user

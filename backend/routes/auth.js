@@ -1,10 +1,14 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const user = require('../Models/user');
 var jwt = require('jsonwebtoken');
+const fetchUser = require('../middleware/fetchuser');
 const { body, validationResult } = require('express-validator');
-//creating a User using "api/auth/User", no login required
+
+const JWT_SECRET = 'Abhayisthe@boss';
+
+//Route 1: creating a User using "api/auth/User", no login required
 router.post('/User', [
    body('email', 'Enter a Valid Email').isEmail(),
    body('name', 'Enter a valid name').isString(),
@@ -40,20 +44,20 @@ router.post('/User', [
       })
       const data = {
          User: {
-            user: user.id
+           id: User.id
          }
       }
-      const JWT_SECRET = 'Abhayistheboss';
+     
       const authtoken =  jwt.sign(data, JWT_SECRET)
 
-      // res.json(User);
-      res.json(authtoken);
+      res.json(User);
+      // res.json(authtoken);
    } catch (error) {
       console.log(error.message)
       res.status(500).send('some error occured')
    }
 });
-//verify a user 'api/auth/login  using webtokens 'no login required'
+//Route 2: verify a user 'api/auth/login  using webtokens 'no login required'
 
 router.post('/login', [
    body('email', 'Enter a Valid Email').isEmail(),
@@ -79,10 +83,10 @@ router.post('/login', [
       }
       const data = {
          User: {
-            user: user.id
+            id: User.id
          }
       }
-      const JWT_SECRET = 'Abhayistheboss';
+      
       const authtoken = jwt.sign(data, JWT_SECRET);
       res.json(authtoken);
 
@@ -96,14 +100,28 @@ router.post('/login', [
 
 
 
-// GEt user login details using POST: api/auth/myaccount  'login required'
+//Route 3:  GEt user login details using POST: api/auth/myaccount  'login required'
 
-try {
-   const User=await user.findById('userId')
-} catch (error) {
-   console.log(error)
-   res.status(500).json('some error occured');
-}
+router.post('/myaccount', fetchUser, async(req, res) => {
+   
+
+
+   try {
+      const userId = req.User.id;
+      console.log(userId);
+      const User = await user.findById(userId).select('-password');
+      
+      res.send(User);
+   }
+   
+   catch (error) {
+      console.log(error)
+      res.status(500).send('Internal server error');
+   }
+
+
+});
+
 
 
 
