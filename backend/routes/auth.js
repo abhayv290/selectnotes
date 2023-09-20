@@ -44,11 +44,11 @@ router.post('/User', [
       })
       const data = {
          User: {
-           id: User.id
+            id: User.id
          }
       }
-     
-      const authtoken =  jwt.sign(data, JWT_SECRET)
+
+      const authtoken = jwt.sign(data, JWT_SECRET)
 
       res.json(User);
       // res.json(authtoken);
@@ -72,12 +72,12 @@ router.post('/login', [
    }
    const { email, password } = req.body;
    try {
-        const User = await  user.findOne({email})
+      const User = await user.findOne({ email })
       if (!User) {
          return res.status(400).json({ error: "Please enter the correct credientials" })
       }
 
-      const pswdcompare =bcrypt.compare(password, User.password);
+      const pswdcompare = bcrypt.compare(password, User.password);
       if (!pswdcompare) {
          res.status(400).res.json({ error: "Please Enter the correct credientials" })
       }
@@ -86,7 +86,7 @@ router.post('/login', [
             id: User.id
          }
       }
-      
+
       const authtoken = jwt.sign(data, JWT_SECRET);
       res.json(authtoken);
 
@@ -102,18 +102,18 @@ router.post('/login', [
 
 //Route 3:  GEt user login details using POST: api/auth/myaccount  'login required'
 
-router.post('/myaccount', fetchUser, async(req, res) => {
-   
+router.post('/myaccount', fetchUser, async (req, res) => {
+
 
 
    try {
       const userId = req.User.id;
       console.log(userId);
       const User = await user.findById(userId).select('-password');
-      
+
       res.send(User);
    }
-   
+
    catch (error) {
       console.log(error)
       res.status(500).send('Internal server error');
