@@ -7,7 +7,7 @@ export default function Navbar() {
 <nav className="navbar navbar-expand-lg bg-body-tertiary bg-primary-subtle">
   <div className="container-fluid">
   <Link className="navbar-brand" to="/">
-      <img src={icon} alt="Logo" width="30" height="24" className="d-inline-block align-text-top"/>
+      <img src={icon} alt="Logo" width="35"  className="d-inline-block align-text-top"/>
      <span className='fw-bold text-success'>SelectNotes</span>
     </Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

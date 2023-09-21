@@ -5,17 +5,19 @@ import {
 import Navbar from './Components/Navbar'
 import Home from './Components/Home'
 import About from './Components/About'
+import NoteState from './Context/notes/Notestate'
 export default function App() {
   return (
     <>
 
-    
 
+
+      <NoteState>
 
         <BrowserRouter>
           <Navbar />
           <Routes>
-          
+
             <Route path='/' element={<Home />} />
             <Route path='/About' element={<About />} />
 
@@ -25,8 +27,9 @@ export default function App() {
 
 
         </BrowserRouter>
+      </NoteState>
 
-     
+
     </>
   )
 }
