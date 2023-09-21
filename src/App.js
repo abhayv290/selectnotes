@@ -1,12 +1,32 @@
-
-import './App.css';
-
-function App() {
+import React from 'react'
+import {
+  BrowserRouter, Routes, Route
+} from 'react-router-dom'
+import Navbar from './Components/Navbar'
+import Home from './Components/Home'
+import About from './Components/About'
+export default function App() {
   return (
-    <div className="App container my-3">
-     Hey buddy How you been there!
-    </div>
-  );
-}
+    <>
 
-export default App;
+    
+
+
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+          
+            <Route path='/' element={<Home />} />
+            <Route path='/About' element={<About />} />
+
+
+
+          </Routes>
+
+
+        </BrowserRouter>
+
+     
+    </>
+  )
+}
