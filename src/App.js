@@ -12,8 +12,8 @@ export default function App() {
 
 
 
-      <NoteState>
-
+      
+<NoteState>
         <BrowserRouter>
           <Navbar />
           <Routes>
@@ -27,8 +27,8 @@ export default function App() {
 
 
         </BrowserRouter>
-      </NoteState>
-
+    
+</NoteState>
 
     </>
   )
