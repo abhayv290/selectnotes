@@ -1,8 +1,10 @@
 import React from 'react'
-// import Notes from './Notes'
+import Notes from './Notes'
+
 
 export default function Home() {
   return (
+    <>
     <div className="container my-5 border border-primary">
 
       <h1 className='text-center my-2 text-primary'>Add your Notes</h1>
@@ -16,9 +18,10 @@ export default function Home() {
           <textarea class="form-control" id="exampleFormControlTextarea1" placeholder='Your description here' rows="3"></textarea>
         </div>
         </form>
+      </div>
         <div>
-          {/* <Notes/> */}
+        <Notes/>
         </div>
-    </div>
+      </>
   )
 }
