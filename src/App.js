@@ -6,6 +6,7 @@ import Navbar from './Components/Navbar'
 import Home from './Components/Home'
 import About from './Components/About'
 import NoteState from './Context/notes/Notestate'
+import Alert from './Components/Alert'
 export default function App() {
   return (
     <>
@@ -16,6 +17,7 @@ export default function App() {
 <NoteState>
         <BrowserRouter>
           <Navbar />
+          <Alert />
           <Routes>
 
             <Route path='/' element={<Home />} />

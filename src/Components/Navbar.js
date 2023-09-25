@@ -1,7 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom'
 import icon from '../../src/assets/notes-54-512.png'
 export default function Navbar() {
+  const location = useLocation();
+
+  useEffect(() => {
+   console.log(location)
+  },[location])
     return (
         <>
 <nav className="navbar navbar-expand-lg bg-body-tertiary bg-primary-subtle">
