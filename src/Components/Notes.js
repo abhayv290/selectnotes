@@ -12,8 +12,8 @@ export default function Notes() {
 
         <div className="container">
             <div className="row my-4">
-                {notes.map((note) => {
-                    return <NoteItem note={note} />;
+                {notes.map((note,index) => {
+                    return <NoteItem note={note} key={index} />;
                 })}
             </div>
         </div>

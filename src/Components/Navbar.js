@@ -22,11 +22,11 @@ export default function Navbar() {
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/Home">Home</Link>
+          <Link className={`nav-link ${location.pathname==='/Home'? 'text-danger':''}`} aria-current="page" to="/Home">Home</Link>
         </li>
        
         <li className="nav-item">
-          <Link className="nav-link" to="/About">About</Link>
+          <Link className={`nav-link ${location.pathname==='/About'? 'text-danger':''}`} to="/About">About</Link>
         </li>
         
       </ul>
