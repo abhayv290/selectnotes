@@ -1,6 +1,6 @@
 Hey there,
 
-# SElectNOtes your nonstop notemaking parter
+# SElectNOtes your nonstop notemaking Partner
 create a note on the cloud
 
 SelectNOtes: A cloud notes app built with create-react-app, Node.js, Express.js, MongoDB, and Mongoose
