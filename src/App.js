@@ -13,8 +13,8 @@ export default function App() {
 
 
 
-      
-<NoteState>
+
+      <NoteState>
         <BrowserRouter>
           <Navbar />
           <Alert />
@@ -23,14 +23,14 @@ export default function App() {
             <Route path='/' element={<Home />} />
             <Route path='/About' element={<About />} />
 
-
-
           </Routes>
 
 
+
+
         </BrowserRouter>
-    
-</NoteState>
+
+      </NoteState>
 
     </>
   )

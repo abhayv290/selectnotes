@@ -25,7 +25,7 @@ setTimeout(() => {
       <div style={{height:'20px'}}>
       <div className={`alert alert-${alert.type} alert-dismissible my-3 fade show`} role="alert">
           
-            <strong>{ capitalise(alert.type?alert.type:'')}</strong>    {alert.msg}
+            <strong>{ capitalise(alert.type?alert.type:'')}</strong>: {alert.msg}
         
             </div>
             </div>
