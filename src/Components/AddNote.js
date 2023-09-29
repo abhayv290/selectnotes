@@ -13,9 +13,9 @@ export default function AddNote() {
 
     const [note, setnote] = useState({ title: "", description: "", tag: "default" })
     //Handle ONclick
-    const handleclick = (e) => {        
+    const handleclick = (e) => {
         e.preventDefault();
-        addNote(note.title, note.description ,note.tag);
+        addNote(note.title, note.description, note.tag);
         console.log('new note added');
     }
 
@@ -38,7 +38,7 @@ export default function AddNote() {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description" className="form-label">Description</label>
-                    <input onChange={onchange} className="form-control" id="description" name='description' placeholder='Your description here' rows="3"/>
+                    <input onChange={onchange} className="form-control" id="description" name='description' placeholder='Your description here' rows="3" />
                 </div>
                 <button type="button" className="btn btn-success " onClick={handleclick}>Add</button>
             </form>
