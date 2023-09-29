@@ -40,7 +40,7 @@ export default function AddNote() {
                     <label htmlFor="description" className="form-label">Description</label>
                     <input onChange={onchange} className="form-control" id="description" name='description' placeholder='Your description here' rows="3"/>
                 </div>
-                <button type="button" class="btn btn-success " onClick={handleclick}>Add</button>
+                <button type="button" className="btn btn-success " onClick={handleclick}>Add</button>
             </form>
         </div>
     )
