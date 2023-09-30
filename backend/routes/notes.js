@@ -21,7 +21,7 @@ router.get('/fetchnotes', fetchUser, async (req, res, next) => {
 //Route 2: For adding the notes as per the User on POST: /api/notes/addnotes ; Login REquired
 
 router.post('/addnotes', fetchUser, [
-    body('title', 'Enter a valid title').isLength({ min: 3 }),
+    body('title', 'Enter a valid title').isLength({ min: 1 }),
     body('description', 'description must be atleast 8 character').isLength({ min: 8 })], async (req, res) => {
 
         try {  // Using try catch for error handling 
@@ -80,7 +80,7 @@ router.put('/updatenotes/:id', fetchUser, async (req, res) => {
         console.log(error);
         res.status(404).send('Content Not Found');
     }
-    
+
 });
 
 
@@ -93,9 +93,9 @@ router.put('/updatenotes/:id', fetchUser, async (req, res) => {
 router.delete('/deletenote/:id', fetchUser, async (req, res) => {
 
     try {  // Using try catch for error handling 
-        
+
         //find the note for Deletion
-        let note = await Notes.findById(req.params.id)
+        let note = await Notes.findById(req.params.id);
         if (!note) {
             res.status(404).send('Not Found')
         }
@@ -113,17 +113,17 @@ router.delete('/deletenote/:id', fetchUser, async (req, res) => {
 
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
 module.exports = router
+
+
+
+
+
+
+
+
+
+
+
+
 
