@@ -52,7 +52,7 @@ router.post('/addnotes', fetchUser, [
 
 // Route:3  - Updating the notes as per the user preferences using PUT: .api/notes/update: login required
 
-router.put('/updatenotes/:id', fetchUser, async (req, res) => {
+router.put(`/updatenotes/:id`, fetchUser, async (req, res) => {
 
     try {  // Using try catch for error handling 
         const { title, description, tag } = req.body;
@@ -73,8 +73,11 @@ router.put('/updatenotes/:id', fetchUser, async (req, res) => {
             res.status(401).send('Not allowed')
         }
         //Update the note
-        note = await Notes.findByIdAndUpdate(req.params.id, { $set: newNote }, { new: true });
-        res.json({ note });
+        else {
+            note = await Notes.findByIdAndUpdate(req.params.id, { $set: newNote }, { new: true });
+
+            res.json({ note });
+        }
 
     } catch (error) {
         console.log(error);
