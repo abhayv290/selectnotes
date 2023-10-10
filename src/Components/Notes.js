@@ -7,7 +7,7 @@ export default function Notes() {
 
     const context = useContext(NoteContext);
 
-    const { notes, GetNotes, editnotes } = context;
+    const { notes, GetNotes, editnote } = context;
 
     useEffect(() => {
 
@@ -30,9 +30,9 @@ export default function Notes() {
     //Handle ONclick
     const handleclick = (e) => {
 
-        editnotes(note._id, note.etitle, note.edescription, note.etag);
+        editnote(note.id, note.etitle, note.edescription, note.etag);
         refclose.current.click();
-        console.log('note updated');
+        //console.log('note updated');
     }
 
     // Handle OnChange

@@ -17,7 +17,7 @@ const NoteState = (props) => {
     fetch(url, {
       method: 'GET',
       headers: {
-        'content-type': 'aplication/json',
+        'content-type': 'application/json',
         'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7ImlkIjoiNjUwYmRkZDVjNzYzMWRjNjg3MDRhNzkxIn0sImlhdCI6MTY5NjE1MTc0MH0.dtkfIb6EWLYJqtmF-hSB3oAoGO50F69FTLHI0PA-SI8',
       }
 
@@ -28,7 +28,7 @@ const NoteState = (props) => {
       })
       .then((json) => {
 
-        console.log(json);
+        //console.log(json);
         setnotes(json);
 
       }).catch((error) => {
@@ -59,7 +59,7 @@ const NoteState = (props) => {
         body: JSON.stringify({ title, description, tag }),
       });
       const json = await response.json();
-      console.log(json);
+      //console.log(json);
     } catch (error) {
       console.log(error);
     }
@@ -87,18 +87,18 @@ const NoteState = (props) => {
       const response = await fetch(url, {
         method: 'DELETE',
         headers: {
-          'content-type': 'aplication/json',
+          'content-type': 'application/json',
           'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7ImlkIjoiNjUwYmRkZDVjNzYzMWRjNjg3MDRhNzkxIn0sImlhdCI6MTY5NjE1MTc0MH0.dtkfIb6EWLYJqtmF-hSB3oAoGO50F69FTLHI0PA-SI8'
         }
       })
 
       const json = await response.json();
-      console.log(json);
+      //console.log(json);
     } catch (error) {
       console.log(error);
     }
 
-    console.log('deleting the note with id' + id);
+    //console.log('deleting the note with id' + id);
     const newNote = notes.filter((note) => {
       return note._id !== id;
     })
@@ -108,31 +108,39 @@ const NoteState = (props) => {
 
 
   // EDIT A NOTE----->>>>
-  const editnote = async (id, description, title, tag) => {
+  const editnote = async (id, title, description, tag) => {
 
     //API CALLS
-    const url = `${host}/updatenotes/${id}`;
-    const response = await fetch(url, {
-      method: 'PUT',
-      headers: {
-        'content-type': 'application/json',
-        'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7ImlkIjoiNjUwYmRkZDVjNzYzMWRjNjg3MDRhNzkxIn0sImlhdCI6MTY5NjE1MTc0MH0.dtkfIb6EWLYJqtmF-hSB3oAoGO50F69FTLHI0PA-SI8'
-      },
-
-      body: JSON.stringify(title, description, tag),
-    })
-    const json = response.json();
-    console.log(json);
+    try {
 
 
+      const url = `${host}/updatenotes/${id}`;
+      const response = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'content-type': 'application/json',
+          'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7ImlkIjoiNjUwYmRkZDVjNzYzMWRjNjg3MDRhNzkxIn0sImlhdCI6MTY5NjE1MTc0MH0.dtkfIb6EWLYJqtmF-hSB3oAoGO50F69FTLHI0PA-SI8'
+        },
+        body: JSON.stringify({ title, description, tag })
+      })
 
-    console.log('editing the notes with id' + id);
-    for (let i = 0; i < notes.length(); i++) {
-      if (notes._id === id) {
-        notes.description = description;
-        notes.title = title;
-        notes.tag = tag;
+      const json = response.json();
+      //console.log(json);
+
+
+
+    } catch (error) {
+      console.log(error);
+    }
+    console.log('editing the notes with id: ' + id);
+    for (let i = 0; i < notes.length; i++) {
+      const element = notes[i];
+      if (element._id === id) {
+        notes[i].title = title;
+        notes[i].description = description;
+        notes[i].tag = tag;
       }
+      break;
     }
   }
 
