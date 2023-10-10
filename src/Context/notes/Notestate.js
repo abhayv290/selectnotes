@@ -132,16 +132,18 @@ const NoteState = (props) => {
     } catch (error) {
       console.log(error);
     }
-    console.log('editing the notes with id: ' + id);
-    for (let i = 0; i < notes.length; i++) {
-      const element = notes[i];
+    const newnotes = JSON.parse(JSON.stringify(notes));
+    // console.log('editing the notes with id: ' + id);
+    for (let i = 0; i < newnotes.length; i++) {
+      const element = newnotes[i];
       if (element._id === id) {
-        notes[i].title = title;
-        notes[i].description = description;
-        notes[i].tag = tag;
+        newnotes[i].title = title;
+        newnotes[i].description = description;
+        newnotes[i].tag = tag;
       }
       break;
     }
+    setnotes(newnotes);
   }
 
 
