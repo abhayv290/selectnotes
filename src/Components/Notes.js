@@ -24,6 +24,7 @@ export default function Notes() {
     const ref = useRef(null);
     const updatenote = (currentnote) => {
         ref.current.click();
+
         setnote({ id: currentnote._id, etitle: currentnote.title, edescription: currentnote.description, etag: currentnote.tag });
     }
 
@@ -61,18 +62,18 @@ export default function Notes() {
                             <form>
                                 <div className="mb-3">
                                     <label htmlFor="etitle" className="form-label">Title</label>
-                                    <input type="email" className="form-control" id="etitle" name='etitle' placeholder="your title here" value={note.etitle} onChange={onchange} />
+                                    <input type="email" className="form-control" id="etitle" name='etitle' placeholder="your title here" value={note.etitle} onChange={onchange} minLength={1} required />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="edescription" className="form-label">Description</label>
-                                    <input onChange={onchange} value={note.edescription} className="form-control" id="edescription" name='edescription' placeholder='Your description here' rows="3" />
+                                    <input onChange={onchange} value={note.edescription} className="form-control" id="edescription" name='edescription' placeholder='Your description here' rows="3" minLength={5} required />
                                 </div>
 
                             </form>
                         </div>
 
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-primary" onClick={handleclick}>Update</button>
+                            <button disabled={note.edescription.length < 9 && note.etitle.length < 2 ? true : false} type="button" className="btn btn-primary" onClick={handleclick}>Update</button>
                         </div>
                     </div>
                 </div>

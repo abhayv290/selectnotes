@@ -14,9 +14,11 @@ export default function AddNote() {
     const [note, setnote] = useState({ title: "", description: "", tag: "default" })
     //Handle ONclick
     const handleclick = (e) => {
-        e.preventDefault();
+
         addNote(note.title, note.description, note.tag);
-        console.log('new note added');
+
+        document.getElementById('title').value = '';
+        document.getElementById('description').value = '';
     }
 
     // Handle OnChange
@@ -33,14 +35,14 @@ export default function AddNote() {
             <h1 className='text-center my-2 text-primary'>Add your Notes</h1>
             <form>
                 <div className="mb-3">
-                    <label htmlFor="title" className="form-label">Title</label>
-                    <input type="email" className="form-control" id="title" name='title' placeholder="your title here" onChange={onchange} />
+                    <label htmlFor="title" className="form-label"><strong>Title</strong></label>
+                    <input type="text" className="form-control" id="title" name='title' placeholder="your title here" onChange={onchange} minLength={2} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="description" className="form-label">Description</label>
-                    <input onChange={onchange} className="form-control" id="description" name='description' placeholder='Your description here' rows="3" />
+                    <label htmlFor="description" className="form-label"><strong>Description</strong></label>
+                    <input onChange={onchange} className="form-control" id="description" name='description' placeholder='Your description here' rows="3" minLength={9} required />
                 </div>
-                <button type="button" className="btn btn-success " onClick={handleclick}>Add NOte</button>
+                <button disabled={note.description.length < 9 && note.title.length < 2 ? true : false} type="button" className="btn btn-success " onClick={handleclick}>Add Note</button>
             </form>
         </div>
     )

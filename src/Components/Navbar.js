@@ -22,7 +22,7 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className={`nav-link ${location.pathname === '/Home' ? 'text-danger' : ''}`} aria-current="page" to="/Home">Home</Link>
+                <Link className={`nav-link ${location.pathname === '/' ? 'text-danger' : ''}`} aria-current="page" to="/">Home</Link>
               </li>
 
 

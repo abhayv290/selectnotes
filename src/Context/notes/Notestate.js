@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 import NoteContext from "./Notecontext";
 import { useState } from "react";
@@ -140,8 +141,9 @@ const NoteState = (props) => {
         newnotes[i].title = title;
         newnotes[i].description = description;
         newnotes[i].tag = tag;
+        break;
       }
-      break;
+
     }
     setnotes(newnotes);
   }
