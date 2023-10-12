@@ -19,7 +19,7 @@ const NoteState = (props) => {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
-        'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7ImlkIjoiNjUwYmRkZDVjNzYzMWRjNjg3MDRhNzkxIn0sImlhdCI6MTY5NjE1MTc0MH0.dtkfIb6EWLYJqtmF-hSB3oAoGO50F69FTLHI0PA-SI8',
+        'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7ImlkIjoiNjUyODY0NGU1Njc1Mjc4ZDYzOTRlMGY0In0sImlhdCI6MTY5NzE0NjA0OH0.FuF2S5xVZU5HgVSfb4dcip6xOmSQkqoYSBoIZprTEj8',
       }
 
     })
@@ -55,7 +55,7 @@ const NoteState = (props) => {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
-          'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7ImlkIjoiNjUwYmRkZDVjNzYzMWRjNjg3MDRhNzkxIn0sImlhdCI6MTY5NjE1MTc0MH0.dtkfIb6EWLYJqtmF-hSB3oAoGO50F69FTLHI0PA-SI8',
+          'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7ImlkIjoiNjUyODY0NGU1Njc1Mjc4ZDYzOTRlMGY0In0sImlhdCI6MTY5NzE0NjA0OH0.FuF2S5xVZU5HgVSfb4dcip6xOmSQkqoYSBoIZprTEj8',
         },
         body: JSON.stringify({ title, description, tag }),
       });
@@ -89,7 +89,7 @@ const NoteState = (props) => {
         method: 'DELETE',
         headers: {
           'content-type': 'application/json',
-          'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7ImlkIjoiNjUwYmRkZDVjNzYzMWRjNjg3MDRhNzkxIn0sImlhdCI6MTY5NjE1MTc0MH0.dtkfIb6EWLYJqtmF-hSB3oAoGO50F69FTLHI0PA-SI8'
+          'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7ImlkIjoiNjUyODY0NGU1Njc1Mjc4ZDYzOTRlMGY0In0sImlhdCI6MTY5NzE0NjA0OH0.FuF2S5xVZU5HgVSfb4dcip6xOmSQkqoYSBoIZprTEj8'
         }
       })
 
@@ -120,7 +120,7 @@ const NoteState = (props) => {
         method: 'PUT',
         headers: {
           'content-type': 'application/json',
-          'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7ImlkIjoiNjUwYmRkZDVjNzYzMWRjNjg3MDRhNzkxIn0sImlhdCI6MTY5NjE1MTc0MH0.dtkfIb6EWLYJqtmF-hSB3oAoGO50F69FTLHI0PA-SI8'
+          'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7ImlkIjoiNjUyODY0NGU1Njc1Mjc4ZDYzOTRlMGY0In0sImlhdCI6MTY5NzE0NjA0OH0.FuF2S5xVZU5HgVSfb4dcip6xOmSQkqoYSBoIZprTEj8'
         },
         body: JSON.stringify({ title, description, tag })
       })

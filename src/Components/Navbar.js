@@ -31,8 +31,15 @@ export default function Navbar() {
               </li>
 
             </ul>
+
+
           </div>
         </div>
+        <form action="" className='d-flex justify-content-end'>
+          <Link className="btn btn-primary mx-1" to={'/login'} role='button'>LogIn</Link>
+          <Link className="btn btn-primary mx-1" to={'/signup'} role='button'>SignUp</Link>
+        </form>
+
       </nav>
 
     </>
