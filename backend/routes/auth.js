@@ -32,9 +32,9 @@ router.post('/User', [
          return res.status(400).json({ success, error: "this user already exists " })
       }
 
+
+
       //Creating a new hash for securing password
-
-
       const salt = bcrypt.genSaltSync(10);
       const secpswd = bcrypt.hashSync(req.body.password, salt);
       //for the new user creation
@@ -59,8 +59,8 @@ router.post('/User', [
       res.status(500).send('some error occured')
    }
 });
-//Route 2: verify a user 'api/auth/login  using webtokens 'no login required'
 
+//Route 2: verify a user 'api/auth/login  using webtokens 'no login required'
 router.post('/login', [
    body('email', 'Enter a Valid Email').isEmail(),
 

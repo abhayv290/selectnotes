@@ -3,13 +3,13 @@ import Notes from './Notes'
 
 
 
-export default function Home() {
+export default function Home(props) {
   return (
     <>
-    
-        <div>
-        <Notes/>
-        </div>
-      </>
+
+      <div>
+        <Notes ShowAlert={props.ShowAlert} />
+      </div>
+    </>
   )
 }

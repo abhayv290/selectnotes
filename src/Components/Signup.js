@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import config from '../config';
 
-function Signup() {
+function Signup(props) {
     const [credential, setCredential] = useState({
         username: '',
         email: '',
@@ -29,15 +29,19 @@ function Signup() {
             if (json.success) {
                 console.log(json);
                 navigate('/');
+                props.showAlert('SignedUP', 'success');
+            }
+            else {
+                props.showAlert('Invalid Credential', 'danger');
             }
 
 
         } catch (error) {
             console.log(error);
-
         }
-
     }
+
+
     return (
         <div style={{ backgroundImage: "url('https://th.bing.com/th/id/OIP.QdEXYjcxXGpEYds_749dZwHaFP?pid=ImgDet&w=1322&h=936&rs=1')", backgroundSize: 'cover', backgroundRepeat: 'no-repeat', borderRadius: '20px', width: '50vw', height: '500px' }} className="container my-3">
             <div className="row justify-content-center">
