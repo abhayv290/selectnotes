@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const UserSchema = new Schema({
 
-    name: {
+    username: {
         type: String,
         required: true
     },
@@ -19,11 +19,11 @@ const UserSchema = new Schema({
     },
     date: {
         type: Date,
-       default:Date.now
+        default: Date.now
 
     }
 })
 
-const user= mongoose.model('user', UserSchema);
+const user = mongoose.model('user', UserSchema);
 // user.createIndexes();
-module.exports=user
+module.exports = user

@@ -8,27 +8,28 @@ const { body, validationResult } = require('express-validator');
 
 const JWT_SECRET = 'Abhayisthe@boss';
 
+
 //Route 1: creating a User using "api/auth/User", no login required
 router.post('/User', [
    body('email', 'Enter a Valid Email').isEmail(),
-   body('name', 'Enter a valid name').isString(),
-   body('name', 'Enter a valid name').isLength({ min: 3 }),
+   body('username', 'Enter a valid name').isString(),
+   body('username', 'Enter a valid name').isLength({ min: 3 }),
    body('password', 'Password length must be more than 6').isLength({ min: 6 })
 
 ], async (req, res) => {
+   let success = false;
    // check for validation for the authentication elements
    const error = validationResult(req);
    if (!error.isEmpty()) {
-      return res.status(404).json({ error: error.array() })
+      return res.status(404).json({ success, error: error.array() })
    }
-
    //wraping in try catch 
    try {
 
       //check whether this user exist with this name already?
       let User = await user.findOne({ email: req.body.email })
       if (User) {
-         return res.status(400).json({ error: "this user already exists " })
+         return res.status(400).json({ success, error: "this user already exists " })
       }
 
       //Creating a new hash for securing password
@@ -38,7 +39,7 @@ router.post('/User', [
       const secpswd = bcrypt.hashSync(req.body.password, salt);
       //for the new user creation
       User = await user.create({
-         name: req.body.name,
+         username: req.body.username,
          email: req.body.email,
          password: secpswd
       })
@@ -48,9 +49,10 @@ router.post('/User', [
          }
       }
 
+      // eslint-disable-next-line no-unused-vars
       const authtoken = jwt.sign(data, JWT_SECRET)
-
-      res.json(User);
+      success = true;
+      res.json({ success, User, authtoken });
       // res.json(authtoken);
    } catch (error) {
       console.log(error.message)

@@ -9,6 +9,7 @@ import NoteState from './Context/notes/Notestate'
 import Alert from './Components/Alert'
 import Login from './Components/Login'
 import Signup from './Components/Signup'
+
 export default function App() {
   return (
     <>
