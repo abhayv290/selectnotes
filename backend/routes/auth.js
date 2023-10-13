@@ -12,8 +12,8 @@ const JWT_SECRET = 'Abhayisthe@boss';
 //Route 1: creating a User using "api/auth/User", no login required
 router.post('/User', [
    body('email', 'Enter a Valid Email').isEmail(),
-   body('username', 'Enter a valid name').isString(),
-   body('username', 'Enter a valid name').isLength({ min: 3 }),
+   // body('username', 'Enter a valid name').isString(),
+   // body('username', 'Enter a valid name').isLength({ min: 3 }),
    body('password', 'Password length must be more than 6').isLength({ min: 6 })
 
 ], async (req, res) => {
@@ -66,7 +66,7 @@ router.post('/login', [
 
    body('password', 'Password length must be 6 or  more than 6').isLength({ min: 6 })
 
-], async (req, res) => {
+], async (req, res, next) => {
    // check for validation for the authentication elements
    const error = validationResult(req);
    if (!error.isEmpty()) {
@@ -77,30 +77,35 @@ router.post('/login', [
       let success = false;
       const User = await user.findOne({ email })
       if (!User) {
-         return res.status(400).json({ error: "Please enter the correct credientials" })
+         return res.status(400).json({ success, error: "Please enter the correct credientials" })
       }
-
-      const pswdcompare = bcrypt.compare(password, User.password);
+      // Comparing the password with bcrypt.js
+      const pswdcompare = await bcrypt.compare(password, User.password);
       if (!pswdcompare) {
-         res.status(400).res.json({ success, error: "Please Enter the correct credientials" })
+         res.status(401).json({ success, error: "Please Enter the Correct password" })
+         next();
       }
-      const data = {
-         User: {
-            id: User.id
+
+      else {
+
+         const data = {
+            User: {
+               id: User.id
+            }
          }
+
+         const authtoken = jwt.sign(data, JWT_SECRET);
+         success = true;
+         res.json({ success, authtoken });
       }
-
-      const authtoken = jwt.sign(data, JWT_SECRET);
-      success = true;
-      res.json({ success, authtoken });
-
-
    }
    catch (error) {
       console.log(error)
       res.status(500).json('some error occured');
    }
 });
+
+
 
 
 
