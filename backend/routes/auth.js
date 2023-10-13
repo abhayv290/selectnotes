@@ -12,8 +12,8 @@ const JWT_SECRET = 'Abhayisthe@boss';
 //Route 1: creating a User using "api/auth/User", no login required
 router.post('/User', [
    body('email', 'Enter a Valid Email').isEmail(),
-   // body('username', 'Enter a valid name').isString(),
-   // body('username', 'Enter a valid name').isLength({ min: 3 }),
+   body('username', 'Enter a valid name').isString(),
+   body('username', 'Enter a valid name').isLength({ min: 3 }),
    body('password', 'Password length must be more than 6').isLength({ min: 6 })
 
 ], async (req, res) => {
