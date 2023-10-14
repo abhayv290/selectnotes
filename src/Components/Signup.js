@@ -43,7 +43,7 @@ function Signup(props) {
 
 
     return (
-        <div style={{ backgroundImage: "url('https://th.bing.com/th/id/OIP.QdEXYjcxXGpEYds_749dZwHaFP?pid=ImgDet&w=1322&h=936&rs=1')", backgroundSize: 'cover', backgroundRepeat: 'no-repeat', borderRadius: '20px', width: '50vw', height: '500px' }} className="container my-3">
+        <div style={{ backgroundImage: "url('https://th.bing.com/th/id/OIP.QdEXYjcxXGpEYds_749dZwHaFP?pid=ImgDet&w=1322&h=936&rs=1')", backgroundSize: 'cover', backgroundRepeat: 'no-repeat', borderRadius: '20px', maxWidth: '80%', height: '500px' }} className="container my-3">
             <div className="row justify-content-center">
                 <div className="col-md-6">
                     <h1 className='text-center my-3'><span style={{ background: 'cyan' }} className='rounded px-5'>Sign Up</span></h1>

@@ -47,11 +47,15 @@ export default function Login(props) {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 borderRadius: '20px',
-                width: '50vw',
+                maxWidth: '80%',
                 height: '500px',
             }}
-            className="container my-5"
-        >
+            className="container mydiv my-5 ">
+
+
+
+
+
             <h1 className="text-center my-3">
                 <span style={{ background: 'cyan' }} className="rounded px-5">
                     Login
@@ -81,7 +85,7 @@ export default function Login(props) {
                     </label>
                     <input
                         type="password"
-                        className="form-control"
+                        className="form-control md:w-50 align"
                         id="exampleInputPassword1"
                         name="password"
                         onChange={onChange}
