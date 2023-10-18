@@ -47,7 +47,7 @@ export default function Login(props) {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 borderRadius: '20px',
-                maxWidth: '80%',
+                maxWidth: '500px',
                 height: '500px',
             }}
             className="container mydiv my-5 ">
@@ -65,7 +65,7 @@ export default function Login(props) {
                 style={{ fontSize: '80px', display: 'flex', justifyContent: 'center' }}
                 className="text-center fa-regular fa-user"
             ></i>
-            <form onSubmit={handleSubmit}>
+            <form className='d-flex flex-column align-items-center' onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">
                         Email
@@ -96,7 +96,7 @@ export default function Login(props) {
                 </button>
                 <div className="m-2 text-center fs-5">
                     <span className="text-center">New to SelectNotes?</span> <br />
-                    <Link to="/Signup" className="text-center text-danger text-decoration-none">
+                    <Link to="/Signup" className="text-center  icon-link-hover text-danger text-decoration-none">
                         Create an Account
                     </Link>
                 </div>

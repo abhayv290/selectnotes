@@ -2,9 +2,9 @@
 
 import NoteContext from "./Notecontext";
 import { useState } from "react";
-
+import config from "../../config";
 const NoteState = (props) => {
-  const host = 'http://localhost:5000/api/notes'
+  const host = config.noteurl;
   const notesInitial = [];
 
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { useContext, useState } from 'react';
 
 import NoteContext from '../Context/notes/Notecontext'
-
+import '../index.css'
 
 export default function AddNote() {
 
@@ -30,9 +30,9 @@ export default function AddNote() {
     }
 
     return (
-        <div className="container my-5 border border-primary">
+        <div style={{ backgroundImage: '' }} className="container my-5 border">
 
-            <h1 className='text-center my-2 text-primary'>Add your Notes</h1>
+            <h1 className='text-center my-2 text-primary'>Add Your Notes</h1>
             <form>
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label"><strong>Title</strong></label>
@@ -40,7 +40,7 @@ export default function AddNote() {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description" className="form-label"><strong>Description</strong></label>
-                    <input onChange={onchange} className="form-control" id="description" name='description' placeholder='Your description here' rows="3" minLength={9} required />
+                    <input style={{ outline: 'none' }} onChange={onchange} className="form-control" id="description" name='description' placeholder='Your description here' rows="3" minLength={9} required />
                 </div>
                 <button disabled={note.description.length < 9 && note.title.length < 2 ? true : false} type="button" className="btn btn-success " onClick={handleclick}>Add Note</button>
             </form>
