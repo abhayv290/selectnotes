@@ -1,13 +1,18 @@
 import React from 'react'
 import { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import icon from '../../src/assets/notes-54-512.png'
 export default function Navbar() {
   const location = useLocation();
-
+  const navigate = useNavigate();
   useEffect(() => {
     //  console.log(location)
   }, [location])
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  }
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary bg-primary-subtle">
@@ -22,12 +27,12 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className={`nav-link ${location.pathname === '/' ? 'text-danger' : ''}`} aria-current="page" to="/">Home</Link>
+                <Link className={`nav-link ${location.pathname === '/' ? 'text-danger' : ''}`} aria-current="page" to="/"><b>Home</b></Link>
               </li>
 
 
               <li className="nav-item">
-                <Link className={`nav-link ${location.pathname === '/About' ? 'text-danger' : ''}`} to="/About">About</Link>
+                <Link className={`nav-link ${location.pathname === '/About' ? 'text-danger' : ''}`} to="/About"><b>About</b></Link>
               </li>
 
             </ul>
@@ -35,10 +40,16 @@ export default function Navbar() {
 
           </div>
         </div>
-        <form action="" className='d-flex justify-content-end'>
-          <Link className="btn btn-primary mx-1" to={'/login'} role='button'>LogIn</Link>
-          <Link className="btn btn-primary mx-1" to={'/signup'} role='button'>SignUp</Link>
-        </form>
+        {!localStorage.getItem('token') ?
+          <form action="" className='d-flex justify-content-end'>
+            <Link className="btn btn-primary mx-1" to={'/login'} role='button'>LogIn</Link>
+          </form> :
+          <form action="" className='d-flex justify-content-end'>
+            <Link onClick={handleLogout} className="btn btn-primary mx-1" role='button'>Logout</Link>
+          </form>
+        }
+
+
 
       </nav>
 

@@ -1,17 +1,24 @@
 import React from 'react'
 import { useContext, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NoteContext from '../Context/notes/Notecontext'
 import NoteItem from './NoteItem';
 import AddNote from './AddNote'
-export default function Notes() {
+export default function Notes(props) {
 
     const context = useContext(NoteContext);
-
+    const navigate = useNavigate();
     const { notes, GetNotes, editnote } = context;
 
     useEffect(() => {
+        if (localStorage.getItem('token')) {
+            GetNotes();
+        }
+        else {
+            navigate('/login');
 
-        GetNotes();
+        }
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -20,7 +27,7 @@ export default function Notes() {
 
     //Creating  the useRef variables
 
-    const refclose = useRef(null);
+    const refClose = useRef(null);
     const ref = useRef(null);
     const updatenote = (currentnote) => {
         ref.current.click();
@@ -29,11 +36,12 @@ export default function Notes() {
     }
 
     //Handle ONclick
-    const handleclick = (e) => {
 
+    const handleClick = (e) => {
         editnote(note.id, note.etitle, note.edescription, note.etag);
-        refclose.current.click();
+        refClose.current.click();
         //console.log('note updated');
+        props.showAlert('Note updated successfully', 'success');
     }
 
     // Handle OnChange
@@ -45,7 +53,7 @@ export default function Notes() {
     }
     return (
         <>
-            <AddNote />
+            <AddNote showAlert={props.showAlert} />
             <button ref={ref} type="button" className='d-none  btn btn-primary'
                 data-bs-toggle="modal" data-bs-target="#exampleModal">
                 launch modal
@@ -56,7 +64,7 @@ export default function Notes() {
                     <div className="modal-content">
                         <div className="bg-success modal-header">
                             <h1 className="text-white text-center modal-title fs-5" id="exampleModalLabel">Update Note</h1>
-                            <button ref={refclose} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button ref={refClose} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <form>
@@ -73,7 +81,7 @@ export default function Notes() {
                         </div>
 
                         <div className="modal-footer">
-                            <button disabled={note.edescription.length < 9 && note.etitle.length < 2 ? true : false} type="button" className="btn btn-primary" onClick={handleclick}>Update</button>
+                            <button disabled={note.edescription.length < 9 && note.etitle.length < 2 ? true : false} type="button" className="btn btn-primary" onClick={handleClick}>Update</button>
                         </div>
                     </div>
                 </div>
@@ -83,7 +91,7 @@ export default function Notes() {
             <div className="container">
                 <div className="row my-4">
                     {notes.map((note, index) => {
-                        return <NoteItem note={note} updatenote={updatenote} key={index} />
+                        return <NoteItem note={note} updatenote={updatenote} key={index} showAlert={props.showAlert} />
                     })}
                 </div>
             </div>

@@ -31,8 +31,8 @@ export default function App() {
             <Alert alert={alert} />
           </div>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/About" element={<About />} />
+            <Route path="/" element={<Home showAlert={showAlert} />} />
+            <Route path="/About" element={<About showAlert={showAlert} />} />
             <Route path="/Login" element={<Login showAlert={showAlert} />} />
             <Route path="/Signup" element={<Signup showAlert={showAlert} />} />
           </Routes>

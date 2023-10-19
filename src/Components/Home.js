@@ -8,7 +8,7 @@ export default function Home(props) {
     <>
 
       <div>
-        <Notes ShowAlert={props.ShowAlert} />
+        <Notes showAlert={props.showAlert} />
       </div>
     </>
   )

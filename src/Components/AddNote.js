@@ -4,7 +4,7 @@ import { useContext, useState } from 'react';
 import NoteContext from '../Context/notes/Notecontext'
 import '../index.css'
 
-export default function AddNote() {
+export default function AddNote(props) {
 
     const context = useContext(NoteContext)
 
@@ -13,12 +13,13 @@ export default function AddNote() {
 
     const [note, setnote] = useState({ title: "", description: "", tag: "default" })
     //Handle ONclick
-    const handleclick = (e) => {
+    const handleClick = (e) => {
 
         addNote(note.title, note.description, note.tag);
 
         document.getElementById('title').value = '';
         document.getElementById('description').value = '';
+        props.showAlert('Notes Added', 'success');
     }
 
     // Handle OnChange
@@ -30,9 +31,9 @@ export default function AddNote() {
     }
 
     return (
-        <div style={{ backgroundImage: '' }} className="container my-5 border">
+        <div className="container my-5 border">
 
-            <h1 className='text-center my-2 text-primary'>Add Your Notes</h1>
+            <h1 style={{ color: '#1d1d4a', fontFamily: 'fantasy' }} className='text-center my-2'>Add Your Notes</h1>
             <form>
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label"><strong>Title</strong></label>
@@ -42,7 +43,7 @@ export default function AddNote() {
                     <label htmlFor="description" className="form-label"><strong>Description</strong></label>
                     <input style={{ outline: 'none' }} onChange={onchange} className="form-control" id="description" name='description' placeholder='Your description here' rows="3" minLength={9} required />
                 </div>
-                <button disabled={note.description.length < 9 && note.title.length < 2 ? true : false} type="button" className="btn btn-success " onClick={handleclick}>Add Note</button>
+                <button disabled={note.description.length < 9 && note.title.length < 2 ? true : false} type="button" className="btn btn-success " onClick={handleClick}>Add Note</button>
             </form>
         </div>
     )

@@ -25,3 +25,8 @@ code {
   outline: none;
   box-shadow: none;
 }
+
+.card {
+  width: 20rem;
+  background-image: url('https: //th.bing.com/th/id/OIP.4tJifr5P796ka01aI7nw_wHaEo?pid=ImgDet&rs=1');
+}
