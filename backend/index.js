@@ -1,8 +1,16 @@
 const connnectToMongo = require('./db')
 const express = require('express')
 const cors = require('cors');
+require('dotenv').config();
 
-connnectToMongo();
+(async () => {
+  try {
+    connnectToMongo();
+
+  } catch (err) {
+    console.log(err + 'unable to connect to the mongoDB')
+  }
+})();
 
 const app = express();
 const port = process.env.PORT || 5000
