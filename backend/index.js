@@ -25,5 +25,5 @@ app.use('/api/notes', require('./routes/notes'));
 
 
 app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`)
+  console.log('SelectNotes will be listening on the port ', port)
 })
