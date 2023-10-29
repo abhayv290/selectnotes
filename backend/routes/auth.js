@@ -55,7 +55,7 @@ router.post('/User', [
       res.json({ success, User, authtoken });
       // res.json(authtoken);
    } catch (error) {
-      console.log(error.message)
+      //console.log(error.message)
       res.status(500).send('some error occured')
    }
 });
@@ -100,7 +100,7 @@ router.post('/login', [
       }
    }
    catch (error) {
-      console.log(error)
+      //console.log(error)
       res.status(500).json('some error occured');
    }
 });
@@ -117,14 +117,14 @@ router.post('/myaccount', fetchUser, async (req, res) => {
 
    try {
       const userId = req.User.id;
-      console.log(userId);
+      //console.log(userId);
       const User = await user.findById(userId).select('-password');
 
       res.send(User);
    }
 
    catch (error) {
-      console.log(error)
+      //console.log(error)
       res.status(500).send('Internal server error');
    }
 
