@@ -25,7 +25,7 @@ export default function App() {
     <>
       <NoteState>
         <BrowserRouter>
-          <Navbar />
+          <Navbar showAlert={showAlert} />
 
           <div style={{ height: '20px', marginBottom: '20px' }}>
             <Alert alert={alert} />
