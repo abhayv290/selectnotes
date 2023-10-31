@@ -7,6 +7,8 @@ import NoteState from './Context/notes/Notestate';
 import Alert from './Components/Alert';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
+import Account from './Components/Account';
+
 
 export default function App() {
   const [alert, setAlert] = useState(null);
@@ -34,6 +36,7 @@ export default function App() {
             <Route path="/" element={<Home showAlert={showAlert} />} />
             <Route path="/About" element={<About showAlert={showAlert} />} />
             <Route path="/Login" element={<Login showAlert={showAlert} />} />
+            <Route path="/myaccount" element={<Account />} />
             <Route path="/Signup" element={<Signup showAlert={showAlert} />} />
           </Routes>
         </BrowserRouter>
