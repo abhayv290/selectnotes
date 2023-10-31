@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import config from '../config';
 
+
 export default function Account(props) {
+    // const BASE_URL = `${process.env.REACT_APP_BASE_URL}/myaccount`;
     const url = `${config.apiBaseUrl}/myaccount`;
+    // console.log(BASE_URL);
     const myauth = localStorage.getItem('token');
     const [user, setUser] = useState({
         username: '',
@@ -21,10 +24,13 @@ export default function Account(props) {
                         }
                     });
                     const json = await response.json();
+                    // Convert the server-provided date to local time
+                    const serverDate = new Date(json.date);
+                    const localDate = serverDate.toLocaleString();
                     const myuser = {
                         username: json.username,
                         email: json.email,
-                        date: json.date
+                        date: localDate
                     }
                     setUser(myuser);
                 } else {
