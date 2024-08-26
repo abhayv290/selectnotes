@@ -1,6 +1,7 @@
-Hey there,
+
 
 # SelectNotes: Lock and Store Your Ideas Safely 
+https://fancy-horse-198d14.netlify.app/
 create a note on the cloud
 
 SelectNotes: A cloud notes app built with create-react-app, Node.js, Express.js, MongoDB, and Mongoose
